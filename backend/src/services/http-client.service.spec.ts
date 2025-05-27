@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { StarWarsApiService } from './star-wars-api-service';
+import { HttpClientService } from './http-client.service';
 
-describe('StarWarsApiServiceService', () => {
-  let service: StarWarsApiService;
+describe('HttpClientService', () => {
+  let service: HttpClientService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [StarWarsApiService],
+      providers: [HttpClientService],
     }).compile();
 
-    service = module.get<StarWarsApiService>(StarWarsApiService);
+    service = module.get<HttpClientService>(HttpClientService);
   });
 
   it('should be defined', () => {

@@ -3,24 +3,20 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Injectable } from '@nestjs/common';
-import axios from 'axios';
 import { plainToInstance } from 'class-transformer';
 import { validateOrReject } from 'class-validator';
 import { PeopleDto } from 'src/dtos/PeopleDTO';
-
-interface PeopleApiResponse {
-  status: number;
-  data: PeopleDto[];
-}
+import { HttpClientService } from './http-client.service';
+import { PeopleApiResponse } from 'src/dtos/PeopleApiResponse';
 
 @Injectable()
-export class StarWarsApiService {
-  private readonly BASE_URL = 'https://swapi.info/api';
+export class StarWarsPeopleService {
+  constructor(private readonly httpClient: HttpClientService) {}
 
   async getPeople(): Promise<PeopleDto[]> {
-    const res = await axios.get<PeopleApiResponse>(`${this.BASE_URL}/people`);
+    const res = await this.httpClient.get<PeopleApiResponse>(`/people`);
 
-    const peopleData = Array.isArray(res?.data) ? res.data : [];
+    const peopleData = Array.isArray(res) ? res : [];
 
     const people = plainToInstance(PeopleDto, peopleData);
 
@@ -35,8 +31,8 @@ export class StarWarsApiService {
   }
 
   async getIndPeople(id: number): Promise<PeopleDto> {
-    const res = await axios.get<PeopleDto>(`${this.BASE_URL}/people/${id}`);
+    const res = await this.httpClient.get<PeopleDto>(`/people/${id}`);
 
-    return res.data;
+    return res;
   }
 }

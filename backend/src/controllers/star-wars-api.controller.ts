@@ -1,10 +1,10 @@
 import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { PeopleDto } from 'src/dtos/PeopleDTO';
-import { StarWarsApiService } from 'src/services/star-wars-api-service';
+import { StarWarsPeopleService } from 'src/services/star-wars-people-service';
 
 @Controller('star-wapp-api')
 export class StarWarsApiController {
-  constructor(private readonly starwarsService: StarWarsApiService) {}
+  constructor(private readonly starwarsService: StarWarsPeopleService) {}
 
   @Get('people')
   async getPeople(): Promise<PeopleDto[]> {

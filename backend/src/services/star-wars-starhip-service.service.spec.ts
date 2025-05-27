@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { StarWarsStarhipServiceService } from './star-wars-starhip-service.service';
+import { StarhipServiceService } from './StarshipService';
 
 describe('StarWarsStarhipServiceService', () => {
-  let service: StarWarsStarhipServiceService;
+  let service: StarhipServiceService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [StarWarsStarhipServiceService],
+      providers: [StarhipServiceService],
     }).compile();
 
-    service = module.get<StarWarsStarhipServiceService>(
-      StarWarsStarhipServiceService,
+    service = module.get<StarhipServiceService>(
+      StarhipServiceService,
     );
   });
 

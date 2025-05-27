@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { StarWarsPeopleService } from './star-wars-people-service';
+import { PeopleService } from './PeopleService';
 
 describe('StarWarsApiServiceService', () => {
-  let service: StarWarsPeopleService;
+  let service: PeopleService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [StarWarsPeopleService],
+      providers: [PeopleService],
     }).compile();
 
-    service = module.get<StarWarsPeopleService>(StarWarsPeopleService);
+    service = module.get<PeopleService>(PeopleService);
   });
 
   it('should be defined', () => {

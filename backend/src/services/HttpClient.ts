@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 @Injectable()
-export class HttpClientService {
+export class HttpClient {
   /**
    * Servicio HTTP genérico para realizar peticiones a APIs externas.
    * Utiliza Axios como cliente HTTP.

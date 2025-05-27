@@ -13,7 +13,7 @@ import { PeopleApiResponse } from 'src/dtos/PeopleApiResponse';
 export class StarWarsPeopleService {
   constructor(private readonly httpClient: HttpClientService) {}
 
-  async getPeople(): Promise<PeopleDto[]> {
+  async getAllPeople(): Promise<PeopleDto[]> {
     const res = await this.httpClient.get<PeopleApiResponse>(`/people`);
 
     const peopleData = Array.isArray(res) ? res : [];
@@ -30,7 +30,7 @@ export class StarWarsPeopleService {
     return people;
   }
 
-  async getIndPeople(id: number): Promise<PeopleDto> {
+  async getPeopleById(id: number): Promise<PeopleDto> {
     const res = await this.httpClient.get<PeopleDto>(`/people/${id}`);
 
     return res;

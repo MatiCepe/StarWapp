@@ -4,8 +4,10 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 @Injectable()
 export class HttpClient {
   /**
-   * Servicio HTTP genérico para realizar peticiones a APIs externas.
-   * Utiliza Axios como cliente HTTP.
+   * Generic HTTP to make calls to the Swapi API.
+   * It might be more generic in the future, but for now it is tailored to the Swapi API.
+   * We could use a factory with a base URL, but for now since the time is short, I've kept it simple.
+   * Uses Axios as HTTP client.
    * Will only implement Get and Post methods for now.
    * */
   private readonly axiosInstance: AxiosInstance;

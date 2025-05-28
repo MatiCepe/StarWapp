@@ -2,6 +2,7 @@ export class HttpClient {
     private readonly baseUrl: string;
     constructor() {
         this.baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL!;
+        console.log('API Base URL:', this.baseUrl); 
     }
   
     async get<T>(path: string): Promise<T> {

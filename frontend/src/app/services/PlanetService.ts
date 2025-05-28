@@ -1,11 +1,10 @@
-import { PeopleDto } from "../dtos/PeopleDTO";
-import { PlanetDTO } from "../dtos/PlanetDTO";
+import { Planet } from "../models/Planet";
 import { BaseStarWappService } from "./BaseStarWappService";
 import { HttpClient } from "./HttpClient";
 
-export class PlanetService extends BaseStarWappService<PlanetDTO> {
+export class PlanetService extends BaseStarWappService<Planet> {
     constructor() {
       const httpClient = new HttpClient();
-      super(httpClient, 'planets', PlanetDTO);
+      super(httpClient, 'planets', Planet);
     }
   }

@@ -4,9 +4,7 @@ import { BaseController } from './BaseController';
 import { Controller } from '@nestjs/common';
 @Controller('starships')
 export class StarshipsController extends BaseController<StarshipDto> {
-  constructor(
-    private readonly starshipsService: StarhipServiceService,
-  ) {
+  constructor(private readonly starshipsService: StarhipServiceService) {
     super(starshipsService);
   }
 }

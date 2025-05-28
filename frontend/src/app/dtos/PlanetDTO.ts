@@ -1,4 +1,4 @@
-export interface PlanetDTO {
+interface PlanetDTO {
     name: string;
     rotation_period: string;
     orbital_period: string;

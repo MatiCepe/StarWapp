@@ -4,14 +4,22 @@ import { useEffect, useState } from "react";
 import { PeopleService } from "./services/PeopleService";
 import PeopleComponent from "./components/PeopleComponent";
 import { People } from "./models/People";
+import { ImageGrid } from "./components/ImageGrid";
+import Header from "./components/Header";
+import InternalImage from "./dtos/InternalImage";
+
 
 const peopleService = new PeopleService(); 
-
 
 export default function Home() {
 
   const [mainChar, setMainChar] = useState<People| null>(null);
-
+  const images : InternalImage[] = [
+    {name: "Chars", url: "/images/chars.jpeg"},
+    {name: "Movies", url: "/images/movies.jpeg"},
+    {name: "Starships", url: "/images/starships_2.jpeg"},
+    {name: "Planets", url: "/images/planets.jpeg"}
+];
   useEffect(() => {
     peopleService.getById(1).then((response) => {
       setMainChar(response);
@@ -19,28 +27,17 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid bg-white dark:bg-gray-950 text-gray-900 dark:text-white grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <Header />
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+        <ul className="list-inside text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+          <h1 className="text-4xl sm:text-6xl font-bold mb-4">
+            Star Wars Explorer
+          </h1>
+          <p className="text-lg sm:text-2xl max-w-2xl">
+            Explore Characters, Movies, Starships and Planets from the Star Wars Universe. May the force be with you.
+          </p>
+        </ul>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
@@ -67,6 +64,9 @@ export default function Home() {
             Read our docs
           </a>
         </div>
+
+        <ImageGrid images={images} />
+   
         {mainChar && <PeopleComponent character={mainChar} />}
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">

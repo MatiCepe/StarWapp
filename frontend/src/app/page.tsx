@@ -10,7 +10,7 @@ export default function Home() {
   const images : InternalImage[] = [
     {name: "Characters", url: "/images/charsacters.jpeg"},
     {name: "Films", url: "/images/movies.jpeg"},
-    {name: "Starships", url: "/images/starships_2.jpeg"},
+    {name: "Starships", url: "/images/starships.jpeg"},
     {name: "Planets", url: "/images/planets.jpeg"}
 ];
 

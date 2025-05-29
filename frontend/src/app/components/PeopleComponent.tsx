@@ -1,4 +1,5 @@
 import { People } from "../models/People";
+import { Colors } from "../other/Colors";
 
 interface PeopleComponentProps {
     character: People;
@@ -7,7 +8,7 @@ interface PeopleComponentProps {
   
   const PeopleComponent: React.FC<PeopleComponentProps> = ({ character }) => {
     return (
-      <div className="max-w-sm mx-auto text-gray-100 rounded-lg shadow-lg p-6" style={{ backgroundColor: '#333' }}>
+      <div className="max-w-xl mx-auto text-gray-100 rounded-lg shadow-lg p-6" style={{ backgroundColor: Colors.clay }}>
         <h2 className="text-2xl font-bold mb-4 text-center">{character.name}</h2>
         <ul className="space-y-2">
           <li><span className="font-semibold">Height:</span> {character.height} cm</li>

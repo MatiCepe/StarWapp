@@ -10,9 +10,9 @@ interface ImageGridProps {
   export const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
     return (
         <div className="flex justify-center mt-10">
-        <div className="w-[75vw] sm:w-[50vw] mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div className="w-[75vw] sm:w-[50vw] mx-auto grid grid-cols-1 sm:grid-cols-4 gap-8">
     {images.map((src, index) => (
-              <Link href={`/characters/`} key={index} className="relative aspect-[9/16] transition-transform duration-300 ease-in-out hover:scale-105 hover:-rotate-x-2 hover:rotate-y-2 hover:shadow-xl perspective-1000">
+              <Link href={`pages/${src.name.toLowerCase()}`} key={index} className="relative aspect-[9/16] transition-transform duration-300 ease-in-out hover:scale-105 hover:-rotate-x-2 hover:rotate-y-2 hover:shadow-xl perspective-1000">
                 <Image
                     src={src.url}
                     alt={`Image ${index + 1}`}

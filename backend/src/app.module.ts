@@ -4,12 +4,13 @@ import { AppService } from './app.service';
 import { PeopleService } from './services/PeopleService';
 import { PeopleController } from './controllers/PeopleController';
 import { HttpClient } from './services/HttpClient';
-import { PlanetsService } from './services/PlanetService';
-import { FilmsService } from './services/FilmsService';
-import { StarhipServiceService } from './services/StarshipService';
+import { PlanetService } from './services/PlanetService';
+import { FilmService } from './services/FilmService';
+import { StarhipService } from './services/StarshipService';
 import { FilmsController } from './controllers/FilmsController';
-import { PlanetsController } from './controllers/PlanetsController';
-import { StarshipsController } from './controllers/StarshipsController';
+import { PlanetController } from './controllers/PlanetController';
+import { StarshipController } from './controllers/StarshipController';
+import { OnMemoryCacheService } from './cache/OnMemoryCacheService';
 
 @Module({
   imports: [],
@@ -17,16 +18,17 @@ import { StarshipsController } from './controllers/StarshipsController';
     AppController,
     PeopleController,
     FilmsController,
-    PlanetsController,
-    StarshipsController,
+    PlanetController,
+    StarshipController,
   ],
   providers: [
     AppService,
     PeopleService,
     HttpClient,
-    PlanetsService,
-    FilmsService,
-    StarhipServiceService,
+    PlanetService,
+    FilmService,
+    StarhipService,
+    OnMemoryCacheService,
   ],
 })
-export class AppModule {}
+export class AppModule { }

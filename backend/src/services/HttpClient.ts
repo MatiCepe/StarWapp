@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 @Injectable()
@@ -21,23 +21,20 @@ export class HttpClient {
   }
 
   async get<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
-    const response: AxiosResponse<T> = await this.axiosInstance.get(
-      url,
-      config,
-    );
-    return response.data;
+    try {
+      const response: AxiosResponse<T> = await this.axiosInstance.get(
+        url,
+        config,
+      );
+      return response.data;
+    } catch (error) {
+      this.handleError(error, url);
+    }
   }
 
-  async post<T>(
-    url: string,
-    data?: any,
-    config?: AxiosRequestConfig,
-  ): Promise<T> {
-    const response: AxiosResponse<T> = await this.axiosInstance.post(
-      url,
-      data,
-      config,
-    );
-    return response.data;
+  private handleError(error: any, url: string): never {
+    const status = error?.response?.status ?? HttpStatus.INTERNAL_SERVER_ERROR;
+    const message = `HTTP GET ${url} failed: ${error.message}`;
+    throw new HttpException(message, status);
   }
 }

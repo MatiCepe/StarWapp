@@ -6,7 +6,7 @@ export abstract class BaseController<T> {
       getAll(): Promise<T[]>;
       getById(id: number): Promise<T>;
     },
-  ) {}
+  ) { }
 
   @Get()
   async getAll(): Promise<T[]> {

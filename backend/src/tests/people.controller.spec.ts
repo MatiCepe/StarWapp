@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { PeopleController } from './PeopleController';
+import { PeopleController } from '../controllers/PeopleController';
+import { PeopleService } from 'src/services/PeopleService';
 
 describe('PeopleController', () => {
   let controller: PeopleController;
@@ -7,6 +8,16 @@ describe('PeopleController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [PeopleController],
+      providers: [
+        {
+          provide: PeopleService,
+          useValue: {
+            // Métodos mockeados según necesites testear después
+            findAll: jest.fn(),
+            findOne: jest.fn(),
+          },
+        },
+      ],
     }).compile();
 
     controller = module.get<PeopleController>(PeopleController);

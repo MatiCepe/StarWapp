@@ -1,11 +1,5 @@
 "use client";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { PeopleService } from "./services/PeopleService";
-import PeopleComponent from "./components/PeopleComponent";
-import { People } from "./models/People";
-import { ImageGrid } from "./components/ImageGrid";
-import Header from "./components/Header";
+import { ImageGrid } from "./components/base/ImageGrid";
 import InternalImage from "./dtos/InternalImage";
 
 

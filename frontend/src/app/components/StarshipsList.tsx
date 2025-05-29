@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { StarshipService } from '../services/StarshipService';
-import { GenericCard } from './GenericCard';
+import { GenericCard } from './base/GenericCard';
 import StarshipComponent from './StarhipComponent';
 
 export default function StarshipsList() {
@@ -10,31 +10,31 @@ export default function StarshipsList() {
 
   useEffect(() => {
     const service = new StarshipService();
-    service.getAll().then(setStarships); 
+    service.getAll().then(setStarships);
   }, []);
 
   return (
 
     <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white p-8 font-[family-name:var(--font-geist-sans)]">
-  <main className="flex flex-col gap-8 items-center sm:items-start max-w-6xl mx-auto">
-    <h1 className="font-bold text-lg sm:text-2xl font-[family-name:var(--font-geist-mono)]">
-      Explore Starships
-    </h1>
-    <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-      Discover the starships that traverse the galaxy.
-      From fighters to cruisers, learn about the technology, specifications, and history of these iconic vessels.
-    </p>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full">
-      {starships.map((char) => (
-        <GenericCard
-          key={char.name}
-          renderDetails={(char) => <StarshipComponent starship={char} />}
-          item={char}
-        />
-      ))}
+      <main className="flex flex-col gap-8 items-center sm:items-start max-w-6xl mx-auto">
+        <h1 className="font-bold text-lg sm:text-2xl font-[family-name:var(--font-geist-mono)]">
+          Explore Starships
+        </h1>
+        <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
+          Discover the starships that traverse the galaxy.
+          From fighters to cruisers, learn about the technology, specifications, and history of these iconic vessels.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full">
+          {starships.map((char) => (
+            <GenericCard
+              key={char.name}
+              renderDetails={(char) => <StarshipComponent starship={char} />}
+              item={char}
+            />
+          ))}
+        </div>
+      </main>
     </div>
-  </main>
-</div>
 
   );
 }

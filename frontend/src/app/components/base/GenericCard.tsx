@@ -1,7 +1,7 @@
+import { Colors } from "@/app/other/Colors";
+import { toIconName } from "@/app/utils/Utils";
 import { useState } from "react";
 import FavoriteButton from "./FavoriteButton";
-import { toIconName } from "../utils/Utils";
-import { Colors } from "../other/Colors";
 
 interface Item {
   name: string;
@@ -47,28 +47,26 @@ export function GenericCard<T extends Item>({
           </div>
           <div
             className="w-[20%] h-full flex justify-center items-center"
-            style={{ backgroundColor: Colors.red}}
+            style={{ backgroundColor: Colors.red }}
           >
             <FavoriteButton itemId={item.url} />
           </div>
         </div>
 
         <div className="px-4 py-3 h-[70%] text-white bg-[#1c1c1c] relative font-[family-name:var(--font-geist-mono)]">
-  <div className="text-xl">{item.name}</div>
-  <button
-    onClick={toggleModal}
-    className="group absolute bottom-4 right-4 text-white text-sm font-medium px-4 py-2 rounded-sm transition-transform hover:scale-105 hover:cursor-pointer"
-    style={{ backgroundColor: Colors.dark}}
-  >
-    <div className="relative w-full h-[4px] mb-1 rounded-full border border-cyan-400 overflow-hidden">
-      <div className="absolute h-full bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 w-0 group-hover:w-full transition-all duration-300 ease-in" />
-    </div>
-    <span className="text-sm">View details</span>
-</button>
-
-
-  
-</div>
+          <div className="text-xl">{item.name}</div>
+          <button
+            onClick={toggleModal}
+            className="group absolute bottom-4 right-4 text-white text-sm font-medium px-4 py-2 rounded-sm transition-transform hover:scale-105 hover:cursor-pointer"
+            style={{ backgroundColor: Colors.dark }}
+          >
+            <div className="relative w-full h-[4px] mb-1 rounded-full border border-cyan-400 overflow-hidden">
+              <div className="absolute h-full bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 w-0 group-hover:w-full transition-all duration-300 ease-in" />
+            </div>
+            
+            <span className="text-sm">View details</span>
+          </button>
+        </div>
       </div>
 
       {modalOpen && (

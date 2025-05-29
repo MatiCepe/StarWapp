@@ -7,7 +7,7 @@ interface PlanetComponentProps {
 
 const PlanetComponent: React.FC<PlanetComponentProps> = ({ planet }) => {
   return (
-    <div className="max-w-sm mx-auto text-gray-100 rounded-lg shadow-lg p-6" style={{ backgroundColor: Colors.beige }}>
+    <div className="max-w-sm mx-auto text-gray-100 rounded-lg shadow-lg p-6" style={{ backgroundColor: Colors.clay }}>
       <h2 className="text-2xl font-bold mb-4 text-center">{planet.name}</h2>
       <ul className="space-y-2">
         <li><span className="font-semibold">Rotation Period:</span> {planet.rotation_period} hours</li>

@@ -7,7 +7,7 @@ import { usePathname, useRouter } from 'next/navigation';
 
 export default function Header() {
   const path = usePathname();
-  const router = useRouter(); 
+  const router = useRouter();
 
   const showBack = path !== "/";
   const [mounted, setMounted] = useState(false);
@@ -33,7 +33,7 @@ export default function Header() {
           )}
         </div>
 
-        
+
         <nav className="flex gap-6 items-end text-sm font-medium">
           <Link
             href="/"
@@ -65,16 +65,16 @@ export default function Header() {
           >
             <Eclipse />
           </Link>
-        
 
-        {/* About Link */}
-        <Link
-          href="/about"
-          className="rounded hover:bg-gray-100 dark:hover:bg-gray-800 flex  hover:scale-110"
-          aria-label="About"
-        >
-          <Info />
-        </Link>
+
+          {/* About Link */}
+          <Link
+            href="/about"
+            className="rounded hover:bg-gray-100 dark:hover:bg-gray-800 flex  hover:scale-110"
+            aria-label="About"
+          >
+            <Info />
+          </Link>
         </nav>
       </div>
     </header>

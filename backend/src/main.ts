@@ -7,7 +7,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
   app.setGlobalPrefix('api/star-wapp');
   app.enableCors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3001', // ajustalo a tu URL de frontend
+    origin: process.env.FRONTEND_URL || 'http://localhost:3001',
     credentials: true,
   });
   await app.listen(process.env.PORT ?? 3000);

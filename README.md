@@ -1,4 +1,4 @@
-# StarWaApp
+# StarWapp
 
 This is FullStack application, made for a recreuiting process, as in
 https://conexatech.notion.site/Full-Stack-Nest-NextJS-5eae96ec04eb43b88d57710545042071
@@ -47,6 +47,7 @@ Based on the consumption of the data provided by the public Stars Wars API ([`sw
 cd frontend
 npm install
 npm run dev
+```
 
 Access the app at: http://localhost:3000
 
@@ -56,6 +57,7 @@ Access the app at: http://localhost:3000
 cd backend
 npm install
 npm run start:dev
+```
 
 Runs on http://localhost:3001.
 

@@ -62,21 +62,21 @@ npm run start:dev
 Runs on http://localhost:3001.
 
 ### Common Scripts
-##Frontend
+### Frontend
 
 npm run dev
 npm run build
 npm run start
 npm run lint
 
-##Backend
+### Backend
 npm run start
 npm run start:dev
 npm run build
 npm run test
 npm run lint
 
-###Notes
+### Notes
 
 TailwindCSS and Next Themes are used in the frontend.
 Validation and transformation with class-validator and class-transformer in backend.

@@ -87,3 +87,5 @@ Adjust ports and environment variables as needed.
 Since receives data from an API, a DB was not needed
 Even as it has de i18n for internacionalization, the feature was not completed
 Also, the switch for Dark|Light Theme might be added
+
+EVEN THOUGHT IT IS DEPLOYED IN VERCEL, AS THE LINK SHOWS, THE BACKEND IN RAILWAYS IS NOT WORKING

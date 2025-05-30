@@ -4,14 +4,35 @@ import { useEffect, useState } from 'react';
 import { FilmsService } from '../services/FilmsService';
 import FilmComponent from './FilmComponent';
 import { GenericCard } from './base/GenericCard';
+import { SearchBar } from './base/SearchBar';
 
 export default function FilmsList() {
   const [films, setFilms] = useState<Film[]>([]);
+  const [filteredFilms, setFilteredFilms] = useState<Film[]>([]);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     const service = new FilmsService();
-    service.getAll().then(setFilms);
+    service.getAll().then((response) => {
+      setFilms(response)
+      setFilteredFilms(response)
+    }
+    ).catch((error) => {
+      console.error('Error fetching characters:', error);
+    });
   }, []);
+
+  useEffect(() => {
+    if (query.length >= 3) {
+      setFilteredFilms(
+        films.filter((film) =>
+          film.title.toLowerCase().includes(query.toLowerCase())
+        )
+      );
+    } else {
+      setFilteredFilms(films);
+    }
+  }, [query, films]);
 
   return (
 
@@ -24,8 +45,9 @@ export default function FilmsList() {
           Dive into the epic Star Wars saga through its films.
           Explore plot summaries, release dates, and key characters involved in each episode of this legendary saga.
         </p>
+        <SearchBar onSearch={setQuery} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full">
-          {films.map((char) => {
+          {filteredFilms.map((char) => {
             const item = { name: char.title, ...char };
             return (
               <GenericCard key={item.name} renderDetails={(char) => <FilmComponent film={char} />} item={item} />

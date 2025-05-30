@@ -4,14 +4,36 @@ import { useEffect, useState } from 'react';
 import { StarshipService } from '../services/StarshipService';
 import { GenericCard } from './base/GenericCard';
 import StarshipComponent from './StarhipComponent';
+import { SearchBar } from './base/SearchBar';
+
 
 export default function StarshipsList() {
   const [starships, setStarships] = useState<Starship[]>([]);
+  const [filteredStarships, setFilteredStarships] = useState<Starship[]>([]);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     const service = new StarshipService();
-    service.getAll().then(setStarships);
+    service.getAll().then((response) => {
+      setStarships(response)
+      setFilteredStarships(response)
+    }
+    ).catch((error) => {
+      console.error('Error fetching starships:', error);
+    });
   }, []);
+
+  useEffect(() => {
+    if (query.length >= 3) {
+      setFilteredStarships(
+        starships.filter((st) =>
+          st.name.toLowerCase().includes(query.toLowerCase())
+        )
+      );
+    } else {
+      setFilteredStarships(starships);
+    }
+  }, [query, starships]);
 
   return (
 
@@ -24,8 +46,9 @@ export default function StarshipsList() {
           Discover the starships that traverse the galaxy.
           From fighters to cruisers, learn about the technology, specifications, and history of these iconic vessels.
         </p>
+        <SearchBar onSearch={setQuery} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full">
-          {starships.map((char) => (
+          {filteredStarships.map((char) => (
             <GenericCard
               key={char.name}
               renderDetails={(char) => <StarshipComponent starship={char} />}

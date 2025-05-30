@@ -24,7 +24,7 @@ export function GenericCard<T extends Item>({
     <>
       <div
         key={item.name}
-        className="group block rounded overflow-hidden shadow-lg border border-gray-700 transition-transform hover:scale-102 bg-[#1c1c1c]"
+        className="group block rounded overflow-hidden shadow-lg border border-gray-700 transition-transform hover:scale-102 bg-[#1c1c1c] animate-fadeSlideUp"
       >
         <div
           className="h-[30%] aspect-[4/3] w-full"

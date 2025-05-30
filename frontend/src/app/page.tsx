@@ -8,7 +8,7 @@ export default function Home() {
 
 
   const images : InternalImage[] = [
-    {name: "Characters", url: "/images/charsacters.jpeg"},
+    {name: "Characters", url: "/images/characters.jpeg"},
     {name: "Films", url: "/images/movies.jpeg"},
     {name: "Starships", url: "/images/starships.jpeg"},
     {name: "Planets", url: "/images/planets.jpeg"}

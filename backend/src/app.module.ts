@@ -6,7 +6,7 @@ import { PeopleController } from './controllers/PeopleController';
 import { HttpClient } from './services/HttpClient';
 import { PlanetService } from './services/PlanetService';
 import { FilmService } from './services/FilmService';
-import { StarhipService } from './services/StarshipService';
+import { StarshipService } from './services/StarshipService';
 import { FilmsController } from './controllers/FilmsController';
 import { PlanetController } from './controllers/PlanetController';
 import { StarshipController } from './controllers/StarshipController';
@@ -27,7 +27,7 @@ import { OnMemoryCacheService } from './cache/OnMemoryCacheService';
     HttpClient,
     PlanetService,
     FilmService,
-    StarhipService,
+    StarshipService,
     OnMemoryCacheService,
   ],
 })

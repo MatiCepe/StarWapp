@@ -1,11 +1,20 @@
+import { useState, useEffect } from "react";
 import { Planet } from "../models/Planet";
 import { Colors } from "../other/Colors";
+import { PeopleService } from "../services/PeopleService";
+import { PlanetService } from "../services/PlanetService";
 
 interface PlanetComponentProps {
   planet: Planet;
 }
 
 const PlanetComponent: React.FC<PlanetComponentProps> = ({ planet }) => {
+  const [fullEntity, setFullEntity] = useState<FullPlanetDTO | null>(null);
+
+  useEffect(() => {
+    const service = new PlanetService();
+    service.getFullPlanet(planet.url).then(setFullEntity).catch(console.error);
+  }, [planet]);
   return (
     <div className="max-w-sm mx-auto text-gray-100 rounded-lg shadow-lg p-6" style={{ backgroundColor: Colors.clay }}>
       <h2 className="text-2xl font-bold mb-4 text-center">{planet.name}</h2>
@@ -18,8 +27,8 @@ const PlanetComponent: React.FC<PlanetComponentProps> = ({ planet }) => {
         <li><span className="font-semibold">Terrain:</span> {planet.terrain}</li>
         <li><span className="font-semibold">Surface Water:</span> {planet.surface_water}%</li>
         <li><span className="font-semibold">Population:</span> {planet.population}</li>
-        <li><span className="font-semibold">Residents:</span> {planet.residents.length}</li>
-        <li><span className="font-semibold">Films:</span> {planet.films.length}</li>
+        <li><span className="font-semibold">Residents:</span> {fullEntity?.residents?.map((entity) => entity.name).join(" | ")}</li>
+        <li><span className="font-semibold">Films:</span> {fullEntity?.films?.map((entity) => entity.title).join(" | ")}</li>
       </ul>
     </div>
   );

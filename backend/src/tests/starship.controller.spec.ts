@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { StarshipController } from '../controllers/StarshipController';
-import { StarhipService } from 'src/services/StarshipService';
+import { StarshipService } from 'src/services/StarshipService';
 
 describe('StarshipsController', () => {
   let controller: StarshipController;
@@ -10,7 +10,7 @@ describe('StarshipsController', () => {
       controllers: [StarshipController],
       providers: [
         {
-          provide: StarhipService,
+          provide: StarshipService,
           useValue: {
             // Métodos mockeados según necesites testear después
             findAll: jest.fn(),

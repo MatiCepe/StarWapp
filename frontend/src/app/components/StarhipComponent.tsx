@@ -1,11 +1,22 @@
+import { useState, useEffect } from "react";
 import { Starship } from "../models/Starship";
 import { Colors } from "../other/Colors";
+import { PlanetService } from "../services/PlanetService";
+import { StarshipService } from "../services/StarshipService";
 
 interface StarshipComponentProps {
   starship: Starship;
 }
 
 const StarshipComponent: React.FC<StarshipComponentProps> = ({ starship }) => {
+
+  const [fullEntity, setFullEntity] = useState<FullStarshipDTO | null>(null);
+
+  useEffect(() => {
+    const service = new StarshipService();
+    service.getFullStarship(starship.url).then(setFullEntity).catch(console.error);
+  }, [starship]);
+
   return (
     <div className="max-w-sm mx-auto text-gray-100 rounded-lg shadow-lg p-6" style={{ backgroundColor: Colors.clay }}>
       <h2 className="text-2xl font-bold mb-4 text-center">{starship.name}</h2>
@@ -22,8 +33,8 @@ const StarshipComponent: React.FC<StarshipComponentProps> = ({ starship }) => {
         <li><span className="font-semibold">Hyperdrive Rating:</span> {starship.hyperdrive_rating}</li>
         <li><span className="font-semibold">MGLT:</span> {starship.MGLT}</li>
         <li><span className="font-semibold">Starship Class:</span> {starship.starship_class}</li>
-        <li><span className="font-semibold">Pilots:</span> {starship.pilots.length}</li>
-        <li><span className="font-semibold">Films:</span> {starship.films.length}</li>
+        <li><span className="font-semibold">Pilots:</span> {fullEntity?.pilots?.map((entity) => entity.name).join(" | ")}</li>
+        <li><span className="font-semibold">Films:</span> {fullEntity?.films?.map((entity) => entity.title).join(" | ")}</li>
       </ul>
     </div>
   );

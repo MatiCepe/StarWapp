@@ -49,12 +49,11 @@ export default function CharacterList() {
         </p>
         <SearchBar onSearch={setQuery} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full">
-          {filteredCharacters.map((char, index) => (
+          {filteredCharacters.map((char) => (
             <GenericCard
               key={char.name}
               renderDetails={(char) => <PeopleComponent character={char} />}
               item={char}
-              style={{ animationDelay: `${index * 100}ms` }}
             />
           ))}
         </div>

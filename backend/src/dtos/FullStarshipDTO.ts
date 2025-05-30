@@ -1,4 +1,7 @@
-interface StarshipDTO {
+import { FilmDto } from './FilmDTO';
+import { PeopleDto } from './PeopleDTO';
+
+export class FullStarshipDTO {
   name: string;
   model: string;
   manufacturer: string;
@@ -12,8 +15,8 @@ interface StarshipDTO {
   hyperdrive_rating: string;
   MGLT: string;
   starship_class: string;
-  pilots: string[];
-  films: string[];
+  pilots: PeopleDto[];
+  films: FilmDto[];
   created: string;
   edited: string;
   url: string;

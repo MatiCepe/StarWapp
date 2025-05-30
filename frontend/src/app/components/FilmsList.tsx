@@ -7,8 +7,8 @@ import { GenericCard } from './base/GenericCard';
 import { SearchBar } from './base/SearchBar';
 
 export default function FilmsList() {
-  const [films, setFilms] = useState<Film[]>([]);
-  const [filteredFilms, setFilteredFilms] = useState<Film[]>([]);
+  const [films, setFilms] = useState<FilmDTO[]>([]);
+  const [filteredFilms, setFilteredFilms] = useState<FilmDTO[]>([]);
   const [query, setQuery] = useState('');
 
   useEffect(() => {

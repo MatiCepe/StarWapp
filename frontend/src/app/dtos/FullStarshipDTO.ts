@@ -1,4 +1,4 @@
-interface StarshipDTO {
+interface FullStarshipDTO {
   name: string;
   model: string;
   manufacturer: string;
@@ -12,8 +12,8 @@ interface StarshipDTO {
   hyperdrive_rating: string;
   MGLT: string;
   starship_class: string;
-  pilots: string[];
-  films: string[];
+  pilots: PeopleDto[];
+  films: FilmDTO[];
   created: string;
   edited: string;
   url: string;

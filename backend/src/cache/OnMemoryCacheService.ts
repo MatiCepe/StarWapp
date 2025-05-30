@@ -1,6 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import * as NodeCache from 'node-cache'; // 👈 fijate en esto
 
+//OnMemoryCacheService is a simple in-memory cache service using NodeCache.
+// It provides methods to get, set, delete, and flush cache entries.
+// It's used to cache data in memory for quick access, reducing the need for repeated API calls or database queries.
 @Injectable()
 export class OnMemoryCacheService {
     private cache = new NodeCache({ stdTTL: 3600 });

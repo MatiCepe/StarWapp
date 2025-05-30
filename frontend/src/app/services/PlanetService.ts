@@ -7,4 +7,13 @@ export class PlanetService extends BaseStarWappService<Planet> {
     const httpClient = new HttpClient();
     super(httpClient, 'planets', Planet);
   }
+
+  async getFullPlanet(id: string): Promise<FullPlanetDTO> {
+    const encodedId = encodeURIComponent(id);
+    const response = await this.httpClient.get<FullPlanetDTO>(`/planets/full/${encodedId}`);
+    if (!response) {
+      throw new Error('Error fetching Planet');
+    }
+    return response;
+  }
 }

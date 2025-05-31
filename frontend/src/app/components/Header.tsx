@@ -2,16 +2,27 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Info, ChevronLeft, CircleUser, Eclipse, Plane, Clapperboard, HomeIcon } from 'lucide-react';
+import { Info, ChevronLeft, CircleUser, Eclipse, Plane, Clapperboard, HomeIcon, Moon, Sun } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
+import { useTheme } from 'next-themes';
+import { useSound } from '../hooks/useSounds';
 
 export default function Header() {
   const path = usePathname();
   const router = useRouter();
+  const { theme, setTheme } = useTheme();
+
+  const switchOnOff = '/assets/switch.wav';
+
+  const turnOnOff = useSound(switchOnOff);
 
   const showBack = path !== "/";
   const [mounted, setMounted] = useState(false);
 
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+  
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -19,7 +30,7 @@ export default function Header() {
   if (!mounted) return null;
 
   return (
-    <header className="w-full px-4 py-3 flex items-center justify-end bg-white dark:bg-gray-950 text-gray-900 dark:text-white shadow-sm">
+    <header className="w-full px-4 py-3 flex items-center justify-end bg-sand dark:bg-gray-950 text-gray-900 dark:text-white shadow-sm">
       <div className="flex gap-4 items-center justify-between w-full max-w-6xl mx-auto">
         <div>
           {showBack && (
@@ -41,6 +52,11 @@ export default function Header() {
           >
             <HomeIcon />
           </Link>
+          <button onClick={()=> {
+              toggleTheme();
+              turnOnOff();
+            }} 
+            className='hover:scale-110 hover:cursor-pointer'>{theme === 'light' ? <Moon /> : <Sun />}</button>
           <Link
             href="/pages/characters"
             className={`hover:underline ${path === '/characters' ? 'font-bold underline' : ''} hover:scale-110`}

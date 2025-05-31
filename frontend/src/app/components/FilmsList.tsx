@@ -36,7 +36,7 @@ export default function FilmsList() {
 
   return (
 
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white p-8 font-[family-name:var(--font-geist-sans)]">
+    <div className="min-h-screen bg-sand dark:bg-gray-950 text-gray-900 dark:text-white p-8 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 items-center sm:items-start max-w-6xl mx-auto">
         <h1 className="font-bold text-lg sm:text-2xl font-[family-name:var(--font-geist-mono)]">
           Explore Films

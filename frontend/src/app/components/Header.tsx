@@ -56,7 +56,9 @@ export default function Header() {
               toggleTheme();
               turnOnOff();
             }} 
-            className='hover:scale-110 hover:cursor-pointer'>{theme === 'light' ? <Moon /> : <Sun />}</button>
+            className='hover:scale-110 hover:cursor-pointer'>
+              <i className={`swg swg-lg-special ${theme === 'dark' ? 'swg-reball': 'swg-galemp'}`}/>
+              </button>
           <Link
             href="/pages/characters"
             className={`hover:underline ${path === '/characters' ? 'font-bold underline' : ''} hover:scale-110`}
@@ -85,7 +87,7 @@ export default function Header() {
 
           {/* About Link */}
           <Link
-            href="/about"
+            href="/pages/about"
             className="rounded hover:bg-gray-100 dark:hover:bg-gray-800 flex  hover:scale-110"
             aria-label="About"
           >

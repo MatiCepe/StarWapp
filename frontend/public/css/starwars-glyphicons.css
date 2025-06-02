@@ -26,6 +26,10 @@
   line-height: 0.75em;
   vertical-align: -15%;
 }
+.swg-lg-special {
+  font-size: 1.75em;
+  vertical-align: -25%;
+}
 .swg-2x {
   font-size: 2em;
 }

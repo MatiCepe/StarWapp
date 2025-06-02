@@ -1,7 +1,11 @@
 import { Search } from 'lucide-react';
 import { useState } from 'react';
 
-export function SearchBar({ onSearch }) {
+interface SearchBarProps {
+  onSearch?: (value: string) => void;
+}
+
+export function SearchBar({ onSearch }: SearchBarProps) {
 
     const [input, setInput] = useState('');
 

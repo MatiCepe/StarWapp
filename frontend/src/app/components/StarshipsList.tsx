@@ -5,6 +5,7 @@ import { StarshipService } from '../services/StarshipService';
 import { GenericCard } from './base/GenericCard';
 import StarshipComponent from './StarhipComponent';
 import { SearchBar } from './base/SearchBar';
+import { Starship } from '../models/Starship';
 
 
 export default function StarshipsList() {

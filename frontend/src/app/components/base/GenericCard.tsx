@@ -3,6 +3,7 @@ import { toIconName } from "@/app/utils/Utils";
 import { useState } from "react";
 import FavoriteButton from "./FavoriteButton";
 import { useSound } from "@/app/hooks/useSounds";
+import { CircleX } from "lucide-react";
 
 interface Item {
   name: string;
@@ -84,9 +85,9 @@ export function GenericCard<T extends Item>({
           >
             <button
               onClick={toggleModal}
-              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
             >
-              ✕
+              <CircleX />
             </button>
             {renderDetails(item)}
           </div>

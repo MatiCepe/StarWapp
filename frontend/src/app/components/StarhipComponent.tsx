@@ -1,3 +1,4 @@
+"use client"
 import { useState, useEffect } from "react";
 import { Starship } from "../models/Starship";
 import { Colors } from "../other/Colors";

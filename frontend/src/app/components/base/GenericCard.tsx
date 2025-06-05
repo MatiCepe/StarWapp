@@ -1,4 +1,5 @@
-import { Colors } from "@/app/other/Colors";
+"use client"
+import { useSound } from "@/app/hooks/useSounds";
 import { toIconName } from "@/app/utils/Utils";
 import { useState } from "react";
 import FavoriteButton from "./FavoriteButton";

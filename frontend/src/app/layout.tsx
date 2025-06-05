@@ -4,6 +4,7 @@ import { FavoritesProvider } from "../context/FavoriteContext";
 import Header from "./components/Header";
 import "./globals.css";
 import Theme from "./providers";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
         <Theme>
+        <Toaster position="bottom-right" />
           <FavoritesProvider>
             <Header />
               {children}

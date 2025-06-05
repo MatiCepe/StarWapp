@@ -3,7 +3,6 @@ import { useSound } from "@/app/hooks/useSounds";
 import { toIconName } from "@/app/utils/Utils";
 import { useState } from "react";
 import FavoriteButton from "./FavoriteButton";
-import { useSound } from "@/app/hooks/useSounds";
 import { CircleX } from "lucide-react";
 
 interface Item {

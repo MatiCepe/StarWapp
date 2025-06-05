@@ -1,4 +1,5 @@
 "use client";
+import ToastUtils from "@/app/utils/ToastUtils";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 type FavoritesContextType = {
@@ -21,6 +22,11 @@ export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const isFavorite = (key: string) => !!favorites[key];
 
   const toggleFavorite = (key: string) => {
+    if (isFavorite(key)) {
+      ToastUtils.info("Removed from favorites");
+    } else {
+      ToastUtils.success("Added to favorites");
+    }
     const updated = { ...favorites, [key]: !favorites[key] };
     setFavorites(updated);
     localStorage.setItem("favorites", JSON.stringify(updated));

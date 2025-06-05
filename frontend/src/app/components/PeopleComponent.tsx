@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useState } from "react";
 import { People } from "../models/People";
 import { Colors } from "../other/Colors";

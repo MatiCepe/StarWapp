@@ -5,17 +5,17 @@ import { useState } from "react";
 import FavoriteButton from "./FavoriteButton";
 import { CircleX } from "lucide-react";
 
-interface Item {
+export interface SWItem {
   name: string;
   url: string;
 }
 
-interface GenericCardProps<T extends Item> {
+interface GenericCardProps<T extends SWItem> {
   item: T;
   renderDetails: (item: T) => React.ReactNode;
 }
 
-export function GenericCard<T extends Item>({
+export function GenericCard<T extends SWItem>({
   item,
   renderDetails,
 }: GenericCardProps<T>) {

@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import { SearchBar } from './SearchBar';
-import { GenericCard } from './GenericCard';
+import { GenericCard, SWItem } from './GenericCard';
 import ToastUtils from '@/app/utils/ToastUtils';
 
 interface GenericListProps<T> {
@@ -12,7 +12,7 @@ interface GenericListProps<T> {
   description?: string;
 }
 
-export default function GenericList<T extends Item>({
+export default function GenericList<T extends SWItem>({
   fetchItems,
   renderItem,
   getFilterField,
@@ -63,7 +63,7 @@ export default function GenericList<T extends Item>({
         <SearchBar onSearch={setQuery} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full">
           {filteredItems.map((item) => (
-            <GenericCard key={item?.name} item={item} renderDetails={renderItem} />
+            <GenericCard key={item.name} item={item} renderDetails={renderItem} />
           ))}
         </div>
       </main>

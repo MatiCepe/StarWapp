@@ -6,7 +6,7 @@ import FavoriteButton from "./FavoriteButton";
 import { CircleX } from "lucide-react";
 
 export interface SWItem {
-  name: string;
+  name?: string;
   url: string;
 }
 
@@ -44,7 +44,7 @@ export function GenericCard<T extends SWItem>({
             className="w-[80%] h-full flex justify-left items-center pl-[2rem] bg-amber dark:bg-gold "
           >
             <i
-              className={`swg swg-${toIconName(item.name)} text-[5rem]`}
+              className={`swg swg-${toIconName(item?.name ?? "")} text-[5rem]`}
               style={{ fontSize: "2rem", lineHeight: 1, color: "#000" }}
               aria-label={item.name}
             />

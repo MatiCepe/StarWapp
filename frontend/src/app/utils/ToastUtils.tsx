@@ -32,10 +32,10 @@ class ToastUtils {
     success = (text: string, iconType: ToastIconType = ToastIconType.CHECK) =>
         this.show(ToastType.SUCCESS, text, iconType);
 
-    warning = (text: string, iconType: ToastIconType = ToastIconType.WARNING, opts?: ToastOptions, onDismiss?: Function) =>
+    warning = (text: string, iconType: ToastIconType = ToastIconType.WARNING, opts?: ToastOptions, onDismiss?: () => void) =>
         this.show(ToastType.WARNING, text, iconType, opts, onDismiss);
 
-    lowWarning = (text: string, iconType: ToastIconType = ToastIconType.WARNING, opts?: ToastOptions, onDismiss?: Function) =>
+    lowWarning = (text: string, iconType: ToastIconType = ToastIconType.WARNING, opts?: ToastOptions, onDismiss?: () => void) =>
         this.show(ToastType.LOW_WARNING, text, iconType, opts, onDismiss);
 
     error = (text: string, iconType: ToastIconType = ToastIconType.WARNING, opts?: ToastOptions) =>

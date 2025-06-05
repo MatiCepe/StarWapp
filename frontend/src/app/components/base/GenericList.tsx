@@ -12,7 +12,7 @@ interface GenericListProps<T> {
   description?: string;
 }
 
-export default function GenericList<T>({
+export default function GenericList<T extends Item>({
   fetchItems,
   renderItem,
   getFilterField,
@@ -62,8 +62,8 @@ export default function GenericList<T>({
         </p>
         <SearchBar onSearch={setQuery} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full">
-          {filteredItems.map((item, index) => (
-            <GenericCard key={index} item={item} renderDetails={renderItem} />
+          {filteredItems.map((item) => (
+            <GenericCard key={item?.name} item={item} renderDetails={renderItem} />
           ))}
         </div>
       </main>
